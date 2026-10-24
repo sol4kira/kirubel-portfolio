@@ -7,6 +7,8 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
+import { personalInfo } from "../constants";
+
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -21,7 +23,7 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { target } = e;
-    const { name, value } = e.target;
+    const { name, value } = target;
 
     setForm({
       ...form,
@@ -33,17 +35,30 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
+    const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setLoading(false);
+      window.location.href = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
+        `Portfolio Inquiry from ${form.name}`
+      )}&body=${encodeURIComponent(emailMessage)}`;
+      alert("Opening your email client to send the message directly to Kirubel!");
+      return;
+    }
+
     emailjs
       .send(
-        "",
-        "",
+        serviceId,
+        templateId,
         {
           from_name: form.name,
-          to_name: "",
+          to_name: personalInfo.name,
           from_email: form.email,
           message: emailMessage,
         },
-        ""
+        publicKey
       )
       .then(
         () => {
@@ -60,7 +75,7 @@ const Contact = () => {
           setLoading(false);
           console.error(error);
 
-          alert("Something went wrong... Please try again.");
+          alert("Something went wrong... Please try again or reach out via direct email.");
         }
       );
   };
@@ -115,12 +130,32 @@ const Contact = () => {
             />
           </label>
 
-          <button
-            type="submit"
-            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
-          >
-            {loading ? "Sending..." : "Send"}
-          </button>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <button
+              type="submit"
+              className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary hover:bg-[#915eff] transition-colors"
+            >
+              {loading ? "Sending..." : "Send"}
+            </button>
+
+            <div className="flex items-center gap-4 text-[14px] text-secondary">
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-white underline underline-offset-4"
+              >
+                GitHub Profile
+              </a>
+              <span>•</span>
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="hover:text-white underline underline-offset-4"
+              >
+                Direct Email
+              </a>
+            </div>
+          </div>
         </form>
       </motion.div>
 

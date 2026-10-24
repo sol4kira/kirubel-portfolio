@@ -1,11 +1,12 @@
 import logo from "./logo.svg";
 import backend from "./backend.png";
-import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
-import brain from "./brain.png";
+import fullstack from "./fullstack.png";
+import database from "./database.png";
+import hilcoe from "./hilcoe.png";
 
 import vuejs from "./tech/vuejs.png";
 import firebase from "./tech/firebase.png";
@@ -20,25 +21,24 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 import python from "./tech/python.png";
-
-import security1 from "./company/security.png";
-import energy1 from "./company/energy1.png";
-import ai1 from "./company/ai1.png";
-import webdev1 from "./company/webdev1.png";
+import mysql from "./tech/mysql.svg";
+import mongodb from "./tech/mongodb.svg";
+import express from "./tech/express.svg";
 
 import reactandthreewp from "./reactwiththree.png";
 import threejswp from "./threewallpaper.png";
+import stm_shop from "./stm_shop.png";
+import ks_hospital from "./ks_hospital.png";
+import promptbuddy from "./promptbuddy.png";
 
 export {
   logo,
   backend,
-  mobile,
   web,
   github,
   menu,
   close,
   vuejs,
-  brain,
   firebase,
   css,
   git,
@@ -49,12 +49,17 @@ export {
   python,
   tailwind,
   typescript,
-  security1,
-  ai1,
-  energy1,
   threejs2,
   threejs,
-  webdev1,
+  mysql,
+  mongodb,
+  express,
   threejswp,
   reactandthreewp,
+  database,
+  fullstack,
+  hilcoe,
+  stm_shop,
+  ks_hospital,
+  promptbuddy,
 };

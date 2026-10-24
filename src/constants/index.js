@@ -1,5 +1,4 @@
 import {
-  mobile,
   backend,
   web,
   javascript,
@@ -9,17 +8,16 @@ import {
   tailwind,
   nodejs2,
   git,
-  python,
-  energy1,
-  ai1,
-  webdev1,
-  security1,
-  brain,
-  threejswp,
-  reactandthreewp,
-  threejs2,
+  hilcoe,
   vuejs,
-  firebase,
+  mysql,
+  mongodb,
+  express,
+  fullstack,
+  database,
+  stm_shop,
+  ks_hospital,
+  promptbuddy,
 } from "../assets";
 
 export const navLinks = [
@@ -28,8 +26,12 @@ export const navLinks = [
     title: "About",
   },
   {
-    id: "work",
-    title: "Work",
+    id: "journey",
+    title: "Journey",
+  },
+  {
+    id: "projects",
+    title: "Projects",
   },
   {
     id: "contact",
@@ -39,20 +41,20 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Web Developer",
-    icon: web,
+    title: "FullStack Developer",
+    icon: fullstack,
   },
   {
-    title: "Open Source Developer",
-    icon: mobile,
+    title: "Frontend Developer",
+    icon: web,
   },
   {
     title: "Backend Developer",
     icon: backend,
   },
   {
-    title: "AI / Machine Learning Developer",
-    icon: brain,
+    title: "Database Design",
+    icon: database,
   },
 ];
 
@@ -78,150 +80,162 @@ const technologies = [
     icon: tailwind,
   },
   {
-    name: "nodejs2",
+    name: "Node JS",
     icon: nodejs2,
   },
   {
-    name: "git",
+    name: "Express JS",
+    icon: express,
+  },
+  {
+    name: "MySQL",
+    icon: mysql,
+  },
+  {
+    name: "MongoDB",
+    icon: mongodb,
+  },
+  {
+    name: "Git",
     icon: git,
   },
   {
-    name: "python",
-    icon: python,
-  },
-  {
-    name: "threejs2",
-    icon: threejs2,
-  },
-  {
-    name: "firebase",
-    icon: firebase,
-  },
-  {
-    name: "vuejs",
+    name: "Vue JS",
     icon: vuejs,
   },
 ];
 
 const experiences = [
   {
-    title: "Web Developer",
-    icon: webdev1,
+    title: "Education",
+    icon: hilcoe,
     iconBg: "#383E56",
-    date: "Aug 2023 - Present",
+    date: "Feb 2024 - Present",
     points: [
-      "Developing and maintaining web applications using React.js, Vue.js, and Javascript.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Developed an interactive product configurator using Three.js to allow users to customize and visualize products in real-time.",
+      "3rd year Computer Science student at Hilcoe School of Computer Science.",
+      "Expected time of finish: Jun 2028",
     ],
   },
   {
-    title: "AI / Machine Learning Developer",
-    icon: ai1,
+    title: "FrontEnd",
+    icon: web,
     iconBg: "#383E56",
-    date: " Dec 2022 - Present",
+    date: "Nov 2025 - Present",
     points: [
-      "Utilized Deep Learning frameworks such as TensorFlow or PyTorch to design, train neural networks for image classification, and natural language processing tasks.",
-      "Collaborating with AI / ML developers on developing systems using collaborative filtering and content-based approaches for user experiences",
-      "Performed data cleaning, handling missing values, outliers, and noisy data to ensure high-quality input for machine learning models.",
+      "Done my first real frontend project back in Nov 2025 and still love to watch how far I have come with what I can do.",
+      "Built responsive web layouts, forms, and client interfaces with semantic HTML, CSS, JavaScript, and React.",
     ],
   },
   {
-    title: "QA Tester",
-    company_name: "Express Energy",
-    icon: energy1,
+    title: "Backend",
+    icon: backend,
     iconBg: "#383E56",
-    date: "Sept 2022 - Nov 2022",
+    date: "Dec 2025 - Present",
     points: [
-      "Identified, documented, and reported defects using issue tracking tools like Jira including clear and concise reproduction steps and screenshots.",
-      "Collaborated with developers to verify defect fixes and enhancements, ensuring that issues were resolved according to specifications and user requirements.",
-      "Designed and implemented automated test scripts using testing frameworks like Selenium and Appium.",
+      "Transitioned into backend engineering using Node.js and Express to handle form data, APIs, and business logic.",
+      "Engineered RESTful services, custom routing, and secure data pipelines.",
     ],
   },
   {
-    title: "Supervisor Security Guard",
-    company_name: "Securitas",
-    icon: security1,
+    title: "Full-Stack",
+    icon: fullstack,
     iconBg: "#E6DEDD",
-    date: "May 2020 - Sept 2022",
+    date: "April 2026 - Present",
     points: [
-      "Supervising the security staff, including new hires, and training.",
-      "Monitoring building access and identified all customers and employees .",
-      "Maintain daily logs of irregularities such as equipment, property damage, or theft.",
+      "Architected and deployed STM Shop, a full-stack inventory and retail management system with a 13-table relational SQL database.",
+      "Covered multi-item sales, purchasing, supplier/customer credit tracking, and dynamic business reporting.",
     ],
-  },
-];
-
-const testimonials = [
-  {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
 ];
 
 const projects = [
   {
-    name: "ThreeJS",
+    name: "STM Shop Management System",
     description:
-      "Employing the versatility of JavaScript in conjunction with the robust capabilities of Three.js, my project demonstrates a sophisticated implementation of interactive 3D graphics.",
+      "A production-ready full-stack shop and inventory management system designed for a family retail business. Features 6+ API endpoint modules (Products, Sales, Purchases, Credits, Suppliers, Customers) with transactional integrity, React/Vite front-end, multi-item checkout, and joined SQL analytics reporting.",
     tags: [
       {
-        name: "javascript",
-        color: "",
-      },
-      {
-        name: "threejs",
-        color: "green-text-gradient",
-      },
-    ],
-    image: threejswp,
-    source_code_link: "https://github.com/gvue003/threejs_portfolio",
-  },
-  {
-    name: "Web Developer Portfolio",
-    description:
-      "My project seamlessly integrates the dynamic user interface capabilities of React.js with the immersive 3D rendering functionalities of Three.js to create a captivating and interactive web experience.",
-    tags: [
-      {
-        name: "javascript",
-        color: "",
-      },
-      {
-        name: "reactjs",
+        name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "threejs",
+        name: "nodejs",
         color: "green-text-gradient",
       },
       {
-        name: "tailwindcss",
+        name: "express",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "mysql",
+        color: "orange-text-gradient",
+      },
+    ],
+    image: stm_shop,
+    source_code_link: "https://github.com/sol4kira/stm_shop",
+  },
+  {
+    name: "KS Hospital",
+    description:
+      "A modern, responsive healthcare and hospital portal engineered from the ground up using pure semantic HTML5, CSS3, and vanilla JavaScript. Features a clean, accessible layout highlighting departments, patient services, and consultation booking without external framework dependencies.",
+    tags: [
+      {
+        name: "html5",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "css3",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "javascript",
+        color: "green-text-gradient",
+      },
+      {
+        name: "responsive",
         color: "pink-text-gradient",
       },
     ],
-    image: reactandthreewp,
-    source_code_link: "https://github.com/",
+    image: ks_hospital,
+    source_code_link: "https://github.com/sol4kira/ks-hospital",
+  },
+  {
+    name: "PromptBuddy",
+    description:
+      "A study prompt assistance and generation web application featuring a vanilla JavaScript frontend and a custom Node.js server crafted directly on the core HTTP module (no external frameworks). Implements native request routing, static file delivery, and a persistent POST /save-prompt endpoint.",
+    tags: [
+      {
+        name: "javascript",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "nodejs",
+        color: "green-text-gradient",
+      },
+      {
+        name: "http-core",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "api",
+        color: "orange-text-gradient",
+      },
+    ],
+    image: promptbuddy,
+    source_code_link: "https://github.com/sol4kira/promptBuddy-",
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export const personalInfo = {
+  name: "Kirubel Solomon",
+  role: "Full-Stack Developer",
+  email: "kirubelsolomon2005@gmail.com",
+  phone: "+251925056866",
+  location: "Addis Abeba, Ethiopia",
+  github: "https://github.com/sol4kira",
+  linkedin: "https://linkedin.com/",
+  resume: "/Kirubel_Solomon_Resume.pdf",
+  resumeHtml: "/resume.html",
+};
+
+export { services, technologies, experiences, projects };

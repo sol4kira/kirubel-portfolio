@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Bold KS fused monogram</title>
+  <desc id="desc">A thick, sharp K monogram whose lower leg flows into a bold S, in charcoal on a warm paper background.</desc>
+  <g fill="#17191D">
+    <!-- Bold K stem -->
+    <path d="M202 164 L231 143 L231 368 L202 389 Z"/>
+    <!-- Bold upper arm of K -->
+    <path d="M216 258 L306 153 L350 153 L254 263 Z"/>
+    <!-- Thick shared lower K leg forming the upper turn of the S -->
+    <path d="M221 239
+             C244 251 275 265 300 283
+             C326 302 332 325 319 347
+             C305 370 273 388 241 405
+             L201 427
+             L222 390
+             C251 373 279 356 293 340
+             C302 329 296 317 281 306
+             C260 291 235 281 216 267 Z"/>
+    <!-- Strong tapered S terminal -->
+    <path d="M241 405
+             C270 395 296 381 314 363
+             L365 422
+             L322 403
+             L293 378
+             C278 390 260 400 241 405 Z"/>
+  </g>
+</svg>
