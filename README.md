@@ -152,7 +152,7 @@ kirubel-portfolio/
    ```bash
    npm run dev
    ```
-   Open [http://localhost:5173](http://localhost:5173) in your browser to view the application.
+   Open [Kirubel Portfolio](https://kirubel-portfolio-topaz.vercel.app/) in your browser to view the application.
 
 5. **Build for Production**:
    ```bash
