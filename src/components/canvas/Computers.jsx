@@ -3,8 +3,9 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
+import { desk_preview } from "../../assets";
 
-const Computers = ({ isMobile }) => {
+const Computers = () => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
 
   return (
@@ -21,8 +22,8 @@ const Computers = ({ isMobile }) => {
       <pointLight intensity={2} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -2.5, -1.5]}
+        scale={0.75}
+        position={[0, -2.5, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -33,7 +34,7 @@ const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
+    const mediaQuery = window.matchMedia("(max-width: 640px)");
     setIsMobile(mediaQuery.matches);
 
     const handleMediaQueryChange = (event) => {
@@ -46,6 +47,23 @@ const ComputersCanvas = () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
+
+  // On small mobile screens, render a lightweight preview image.
+  // This bypasses the 10.5 MB GLTF download, eliminates loader delays,
+  // and allows natural vertical touch scrolling without OrbitControls interference.
+  if (isMobile) {
+    return (
+      <div className="w-full h-full flex justify-center items-center pointer-events-none pt-28 pb-10">
+        <img
+          src={desk_preview}
+          alt="Developer Workstation"
+          className="w-[92%] max-w-[440px] object-contain drop-shadow-[0_20px_40px_rgba(145,94,255,0.25)] select-none"
+        />
+      </div>
+    );
+  }
+
+  // On desktop screens, render the full interactive 3D model
   return (
     <Canvas
       frameloop="demand"
@@ -60,7 +78,7 @@ const ComputersCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Computers isMobile={isMobile} />
+        <Computers />
       </Suspense>
 
       <Preload all />

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
   <title id="title">Bold KS fused monogram</title>
-  <desc id="desc">A thick, sharp K monogram whose lower leg flows into a bold S, in charcoal on a warm paper background.</desc>
-  <g fill="#17191D">
+  <desc id="desc">A thick, sharp K monogram whose lower leg flows into a bold S, in purple on a dark background.</desc>
+  <g fill="#915eff">
     <!-- Bold K stem -->
     <path d="M202 164 L231 143 L231 368 L202 389 Z"/>
     <!-- Bold upper arm of K -->

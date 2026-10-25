@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  background-color: #050816;
+  color-scheme: dark;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -115,7 +121,8 @@
 }
 
 /* canvas- styles */
-.canvas-loader {
+.canvas-loader,
+.canvas-load {
   font-size: 10px;
   width: 1em;
   height: 1em;

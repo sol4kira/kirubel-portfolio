@@ -30,6 +30,7 @@ import threejswp from "./threewallpaper.png";
 import stm_shop from "./stm_shop.png";
 import ks_hospital from "./ks_hospital.png";
 import promptbuddy from "./promptbuddy.png";
+import desk_preview from "./desk_preview.png";
 
 export {
   logo,
@@ -62,4 +63,5 @@ export {
   stm_shop,
   ks_hospital,
   promptbuddy,
+  desk_preview,
 };
