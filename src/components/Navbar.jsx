@@ -29,8 +29,7 @@ const Navbar = () => {
             <span className="sm:inline-block hidden">| Full-Stack Developer</span>
           </p>
         </Link>
-        <ul className="list-none h
-        idden sm:flex flex-row items-center gap-8">
+        <ul className="list-none hidden sm:flex flex-row items-center gap-8">
           {navLinks.map((Link) => (
             <li
               key={Link.id}

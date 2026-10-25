@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
-import { desk_preview } from "../../assets";
+import { desk_background } from "../../assets";
 
 const Computers = () => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
@@ -53,12 +53,19 @@ const ComputersCanvas = () => {
   // and allows natural vertical touch scrolling without OrbitControls interference.
   if (isMobile) {
     return (
-      <div className="w-full h-full flex justify-center items-center pointer-events-none pt-28 pb-10">
-        <img
-          src={desk_preview}
-          alt="Developer Workstation"
-          className="w-[92%] max-w-[440px] object-contain drop-shadow-[0_20px_40px_rgba(145,94,255,0.25)] select-none"
-        />
+      <div className="absolute inset-0 w-full h-full pointer-events-none touch-pan-y overflow-hidden z-0">
+        {/* Dark gradient overlay ensures hero text and buttons remain crisp and readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050816] via-[#050816]/75 to-transparent z-[1]" />
+
+        {/* Clean 3D desk render positioned in the lower section of hero */}
+        <div className="w-full h-full flex items-end justify-center pb-28 px-4 z-0">
+          <img
+            src={desk_background}
+            alt=""
+            aria-hidden="true"
+            className="w-full max-w-[500px] object-contain drop-shadow-[0_20px_40px_rgba(145,94,255,0.2)] select-none pointer-events-none"
+          />
+        </div>
       </div>
     );
   }
