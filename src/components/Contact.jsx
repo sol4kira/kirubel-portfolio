@@ -18,6 +18,7 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(null);
 
   const emailMessage = `Sender Email: ${form.email}\n\n${form.message}`;
 
@@ -33,6 +34,16 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setStatus(null);
+
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      setStatus({
+        type: "error",
+        message: "Please fill in all fields before sending.",
+      });
+      return;
+    }
+
     setLoading(true);
 
     const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID;
@@ -44,7 +55,10 @@ const Contact = () => {
       window.location.href = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
         `Portfolio Inquiry from ${form.name}`
       )}&body=${encodeURIComponent(emailMessage)}`;
-      alert("Opening your email client to send the message directly to Kirubel!");
+      setStatus({
+        type: "info",
+        message: "Opening your email app to send directly to Kirubel...",
+      });
       return;
     }
 
@@ -64,7 +78,10 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          alert("Thank you! I'll get back to you as soon as possible!");
+          setStatus({
+            type: "success",
+            message: "Sent! Thank you, I'll get back to you as soon as possible.",
+          });
 
           setForm({
             name: "",
@@ -76,7 +93,10 @@ const Contact = () => {
           setLoading(false);
           console.error(error);
 
-          alert("Something went wrong... Please try again or reach out via direct email.");
+          setStatus({
+            type: "error",
+            message: `Something went wrong. Please try again or email me directly at ${personalInfo.email}.`,
+          });
         }
       );
   };
@@ -157,6 +177,32 @@ const Contact = () => {
               </a>
             </div>
           </div>
+        
+          {status && (
+            <div
+              className={`p-4 rounded-xl text-[14px] font-medium transition-all ${
+                status.type === "success"
+                  ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
+                  : status.type === "error"
+                  ? "bg-rose-500/15 text-rose-300 border border-rose-500/30"
+                  : "bg-[#915eff]/15 text-[#d8c5ff] border border-[#915eff]/30"
+              }`}
+            >
+              {status.type === "error" && status.message.includes(personalInfo.email) ? (
+                <p>
+                  Something went wrong. Please try again or email me directly at{" "}
+                  <a
+                    href={`mailto:${personalInfo.email}`}
+                    className="text-white underline font-semibold hover:text-[#915eff]"
+                  >
+                    {personalInfo.email}
+                  </a>.
+                </p>
+              ) : (
+                <p>{status.message}</p>
+              )}
+            </div>
+          )}
         </form>
       </motion.div>
 
