@@ -56,6 +56,7 @@ const Contact = () => {
           from_name: form.name,
           to_name: personalInfo.name,
           from_email: form.email,
+          reply_to: form.email,
           message: emailMessage,
         },
         publicKey
