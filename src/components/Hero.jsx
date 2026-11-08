@@ -1,9 +1,37 @@
+import { lazy, Suspense, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
+import HeroPreview from "./HeroPreview";
+
+// Three.js + the desktop model are split into their own chunk so the hero
+// markup can paint before any 3D code is parsed.
+const ComputersCanvas = lazy(() => import("./canvas/Computers"));
 
 const Hero = () => {
+  const [show3D, setShow3D] = useState(false);
+
+  useEffect(() => {
+    // Only desktop gets the interactive model; mobile keeps the static preview.
+    if (!window.matchMedia("(min-width: 641px)").matches) return;
+
+    let idleId;
+    let timeoutId;
+    const enable3D = () => setShow3D(true);
+
+    // Wait for the browser to be idle after first paint.
+    if ("requestIdleCallback" in window) {
+      idleId = window.requestIdleCallback(enable3D, { timeout: 2500 });
+    } else {
+      timeoutId = window.setTimeout(enable3D, 1200);
+    }
+
+    return () => {
+      if (idleId) window.cancelIdleCallback(idleId);
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
+  }, []);
+
   return (
     <section className="relative w-full h-screen mx-auto touch-pan-y">
       <div
@@ -18,10 +46,6 @@ const Hero = () => {
           <h1 className={`${styles.heroHeadText} text-white`}>
             Hi, I'm <span className="text-[#915eff]">Kirubel</span>
           </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop full-stack web applications, relational databases, <br className="sm:block hidden" />
-            and interactive user experiences.
-          </p>
 
           <div className="mt-6 flex flex-wrap gap-4 z-20 pointer-events-auto">
             <a
@@ -50,7 +74,9 @@ const Hero = () => {
         </div>
       </div>
 
-      <ComputersCanvas />
+      <Suspense fallback={<HeroPreview />}>
+        {show3D ? <ComputersCanvas /> : <HeroPreview />}
+      </Suspense>
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center z-10">
         <a href="#about">

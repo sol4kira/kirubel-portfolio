@@ -15,9 +15,19 @@ import {
   express,
   fullstack,
   database,
-  stm_shop,
-  ks_hospital,
-  promptbuddy,
+  ks_hospital_360,
+  ks_hospital_720,
+  ks_hospital_360_avif,
+  ks_hospital_720_avif,
+  promptbuddy_360,
+  promptbuddy_720,
+  promptbuddy_360_avif,
+  promptbuddy_720_avif,
+  solomon_building_materials_360,
+  solomon_building_materials_720,
+  solomon_building_materials_360_avif,
+  solomon_building_materials_720_avif,
+  solomonLogo,
 } from "../assets";
 
 export const navLinks = [
@@ -142,37 +152,42 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "April 2026 - Present",
     points: [
-      "Architected and deployed STM Shop, a full-stack inventory and retail management system with a 13-table relational SQL database.",
+      "Architected and deployed full-stack web applications backed by relational SQL databases.",
       "Covered multi-item sales, purchasing, supplier/customer credit tracking, and dynamic business reporting.",
     ],
   },
 ];
 
+const companies = [
+  {
+    name: "Solomon Building Materials",
+    role: "Freelance Client Work",
+    date: "Oct 2026 - Present",
+    logo: solomonLogo,
+  },
+];
+
 const projects = [
   {
-    name: "STM Shop Management System",
+    name: "Solomon Building Materials",
+    project_type: "Freelance Client Work",
+    client: "Solomon Building Materials",
+    client_logo: solomonLogo,
     description:
-      "A production-ready full-stack shop and inventory management system designed for a family retail business. Features 6+ API endpoint modules (Products, Sales, Purchases, Credits, Suppliers, Customers) with transactional integrity, React/Vite front-end, multi-item checkout, and joined SQL analytics reporting.",
+      "A freelance client website that presents the company's work and lists their products. Built with React.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
-      {
-        name: "nodejs",
-        color: "green-text-gradient",
-      },
-      {
-        name: "express",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "mysql",
-        color: "orange-text-gradient",
-      },
     ],
-    image: stm_shop,
-    source_code_link: "https://github.com/sol4kira/stm_shop",
+    image: solomon_building_materials_720,
+    image_srcset: `${solomon_building_materials_360} 360w, ${solomon_building_materials_720} 720w`,
+    image_avif_srcset: `${solomon_building_materials_360_avif} 360w, ${solomon_building_materials_720_avif} 720w`,
+    image_width: 720,
+    image_height: 460,
+    live_demo_link: "https://solomon-building-material.vercel.app/",
+    source_code_link: "https://github.com/sol4kira/solomon-building-material",
   },
   {
     name: "KS Hospital",
@@ -196,13 +211,17 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: ks_hospital,
+    image: ks_hospital_720,
+    image_srcset: `${ks_hospital_360} 360w, ${ks_hospital_720} 720w`,
+    image_avif_srcset: `${ks_hospital_360_avif} 360w, ${ks_hospital_720_avif} 720w`,
+    image_width: 720,
+    image_height: 460,
     source_code_link: "https://github.com/sol4kira/ks-hospital",
   },
   {
     name: "PromptBuddy",
     description:
-      "A study prompt assistance and generation web application featuring a vanilla JavaScript frontend and a custom Node.js server crafted directly on the core HTTP module (no external frameworks). Implements native request routing, static file delivery, and a persistent POST /save-prompt endpoint.",
+      "A prompt workspace with an Express backend, templates API, and prompt library. History is powered by an LRU cache and trie.",
     tags: [
       {
         name: "javascript",
@@ -213,7 +232,7 @@ const projects = [
         color: "green-text-gradient",
       },
       {
-        name: "http-core",
+        name: "express",
         color: "pink-text-gradient",
       },
       {
@@ -221,7 +240,12 @@ const projects = [
         color: "orange-text-gradient",
       },
     ],
-    image: promptbuddy,
+    image: promptbuddy_720,
+    image_srcset: `${promptbuddy_360} 360w, ${promptbuddy_720} 720w`,
+    image_avif_srcset: `${promptbuddy_360_avif} 360w, ${promptbuddy_720_avif} 720w`,
+    image_width: 720,
+    image_height: 460,
+    live_demo_link: "https://promptbuddy-eight.vercel.app",
     source_code_link: "https://github.com/sol4kira/promptBuddy-",
   },
 ];
@@ -238,4 +262,4 @@ export const personalInfo = {
   resumeHtml: "/resume.html",
 };
 
-export { services, technologies, experiences, projects };
+export { services, technologies, experiences, companies, projects };

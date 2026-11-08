@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
-import { desk_background } from "../../assets";
+import HeroPreview from "../HeroPreview";
 
 const Computers = () => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
@@ -48,26 +48,10 @@ const ComputersCanvas = () => {
     };
   }, []);
 
-  // On small mobile screens, render a lightweight preview image.
-  // This bypasses the 10.5 MB GLTF download, eliminates loader delays,
-  // and allows natural vertical touch scrolling without OrbitControls interference.
+  // On small mobile screens, render the lightweight preview image instead of
+  // the 10.5 MB GLTF model.
   if (isMobile) {
-    return (
-      <div className="absolute inset-0 w-full h-full pointer-events-none touch-pan-y overflow-hidden z-0">
-        {/* Dark gradient overlay ensures hero text and buttons remain crisp and readable */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050816] via-[#050816]/75 to-transparent z-[1]" />
-
-        {/* Clean 3D desk render positioned in the lower section of hero */}
-        <div className="w-full h-full flex items-end justify-center pb-28 px-4 z-0">
-          <img
-            src={desk_background}
-            alt=""
-            aria-hidden="true"
-            className="w-full max-w-[500px] object-contain drop-shadow-[0_20px_40px_rgba(145,94,255,0.2)] select-none pointer-events-none"
-          />
-        </div>
-      </div>
-    );
+    return <HeroPreview />;
   }
 
   // On desktop screens, render the full interactive 3D model

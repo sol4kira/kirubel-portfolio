@@ -62,17 +62,12 @@
 
 ## 🚀 Featured Projects
 
-### 1. [STM Shop Management System](https://github.com/sol4kira/stm_shop)
-A production-ready retail and inventory management system designed for a family business.
-- **Stack**: React (Vite), Node.js, Express, MySQL
-- **Key Modules**: 6+ REST API endpoint layers (Products, Sales, Purchases, Credits, Suppliers, Customers) backed by a 13-table relational SQL database, multi-item checkout, and analytics reporting with date-range filters.
-
-### 2. [KS Hospital](https://github.com/sol4kira/ks-hospital)
+### 1. [KS Hospital](https://github.com/sol4kira/ks-hospital)
 A modern healthcare and hospital information portal engineered from scratch.
 - **Stack**: Semantic HTML5, Modern CSS3, Vanilla JavaScript
 - **Key Focus**: Clean, accessible front-end architecture, patient-centric consultation booking, and emergency care overviews without external framework overhead.
 
-### 3. [PromptBuddy](https://github.com/sol4kira/promptBuddy-)
+### 2. [PromptBuddy](https://github.com/sol4kira/promptBuddy-)
 A study prompt assistance and prompt-saving web application.
 - **Stack**: Vanilla JavaScript, Node.js Core HTTP Module
 - **Key Focus**: Custom request routing, static file delivery, and a persistent `POST /save-prompt` endpoint written from scratch to master server fundamentals.
@@ -91,7 +86,6 @@ kirubel-portfolio/
 ├── src/
 │   ├── assets/                     # Project screenshots, tech icons, logos
 │   │   ├── tech/                   # SVGs (MySQL, MongoDB, Express, etc.)
-│   │   ├── stm_shop.png
 │   │   ├── ks_hospital.png
 │   │   └── promptbuddy.png
 │   ├── components/

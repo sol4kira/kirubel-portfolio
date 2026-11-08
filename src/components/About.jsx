@@ -24,6 +24,10 @@ const ServiceCard = ({ index, title, icon }) => (
         <img
           src={icon}
           alt="web-development"
+          width={64}
+          height={64}
+          loading="lazy"
+          decoding="async"
           className="w-16 h-16 object-contain"
         />
 
@@ -47,7 +51,7 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
-       I am a third-year computer science student at Hilcoe School of Computer Science and Technology. I build full-stack web applications with React, Node.js, Express, and MySQL, covering both the frontend and the backend. My main project, STM Shop, is a shop management system for a family retail business, and I deployed it online. I am now learning React Native so I can bring the same skills to mobile apps.
+       I am a third-year computer science student at Hilcoe School of Computer Science and Technology. I build full-stack web applications with React, Node.js, Express, and MySQL, covering both the frontend and the backend. I am now learning React Native so I can bring the same skills to mobile apps.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">

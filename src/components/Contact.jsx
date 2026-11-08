@@ -1,16 +1,26 @@
-import React, { useRef, useState } from "react";
+import React, { lazy, Suspense, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import useInView from "../hooks/useInView";
 
 import { personalInfo } from "../constants";
 
+// The Earth scene pulls in a 2.9 MB model, so it stays in a separate chunk.
+const EarthCanvas = lazy(() => import("./canvas/Earth"));
+
+const EarthPreview = () => (
+  <div className="w-full h-full flex items-center justify-center">
+    <div className="w-40 h-40 rounded-full bg-gradient-to-br from-[#915eff]/50 via-[#2a1f4d] to-[#050816] shadow-[0_0_80px_rgba(145,94,255,0.25)]" />
+  </div>
+);
+
 const Contact = () => {
   const formRef = useRef();
+  const [earthRef, earthInView] = useInView("400px");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -207,10 +217,17 @@ const Contact = () => {
       </motion.div>
 
       <motion.div
+        ref={earthRef}
         variants={slideIn("right", "tween", 0.2, 1)}
         className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
       >
-        <EarthCanvas />
+        {earthInView ? (
+          <Suspense fallback={<EarthPreview />}>
+            <EarthCanvas />
+          </Suspense>
+        ) : (
+          <EarthPreview />
+        )}
       </motion.div>
     </div>
   );
